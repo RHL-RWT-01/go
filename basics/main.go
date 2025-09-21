@@ -121,4 +121,7 @@ func main() {
 	// 14. Defer
 	defer fmt.Println("This is deferred and prints last!")
 	fmt.Println("End of main function.")
+
+
+	printMaths()
 }
