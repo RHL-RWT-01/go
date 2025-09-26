@@ -15,10 +15,20 @@ func add(a, b int) (int, int) {
 	return a + b, a * b
 }
 
+type Address struct {
+	city, state string
+}
+
 // Person is a struct (custom data type)
 type Person struct {
-	name string
-	age  int
+	name    string
+	age     int
+	address Address
+}
+
+func (p *Person) updateAge() {
+	p.age += 1
+	fmt.Println("Updated age inside method:", p.age)
 }
 
 func main() {
@@ -54,8 +64,10 @@ func main() {
 	fmt.Println("Map:", m)
 
 	// 6. Structs
-	p := Person{name: "Alice", age: 30}
+	p := Person{name: "Rahul", age: 30, address: Address{city: "Indore", state: "Madhya Pradesh"}}
 	fmt.Println("Struct:", p)
+	p.updateAge()
+	fmt.Println("Age after method call:", p.age)
 
 	// 7. Pointers
 	var ptr *int = &a
@@ -122,6 +134,5 @@ func main() {
 	defer fmt.Println("This is deferred and prints last!")
 	fmt.Println("End of main function.")
 
-
-	printMaths()
+	// printMaths()
 }
