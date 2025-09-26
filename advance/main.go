@@ -1,12 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func main() {
 	ch := make(chan string)
-
+	var mu sync.Mutex
 	// goroutine sending
 	go func() {
+		mu.Lock()
+		defer mu.Unlock()
 		ch <- "Hello from goroutine"
 	}()
 
