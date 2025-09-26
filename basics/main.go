@@ -68,6 +68,7 @@ func main() {
 	fmt.Println("Struct:", p)
 	p.updateAge()
 	fmt.Println("Age after method call:", p.age)
+	fmt.Println("Address after method call:", p.address)
 
 	// 7. Pointers
 	var ptr *int = &a
